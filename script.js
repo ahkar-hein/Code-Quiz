@@ -59,8 +59,9 @@ const answer = document.getElementById("answer");
 // Variable for question index, score and timer.
 let questionIndex = 0;
 let score = 0;
-let timeLeft = 120;
+let timeLeft = 80;
 let timerInterval;
+let highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 
 function updateTimer() {
     timeLeft--;
@@ -131,5 +132,34 @@ function checkAnswer(selectedChoice, correctAnswer) {
   function showScore() {
     scoreElement.textContent = score;
 }
+function displayHighscores() {
+    highscoreList.innerHTML = "";
+  
+    for (let i = 0; i < highscores.length; i++) {
+        const entry = document.createElement("li");
+        entry.textContent = highscores[i].initials + " - " + highscores[i].score;
+        highscoreList.appendChild(entry);
+    }
+        highscoreContainer.style.display = "block";
+        endquiz.style.display = "none";
+}
+
+  function saveHighscore() {
+        const initials = initialsInput.value.trim();
+    if (initials !== "") {
+        const highscore = {
+        initials: initials,
+        score: score,
+      };
+        
+        highscores.push(highscore);
+        highscores.sort((a, b) => b.score - a.score);
+        localStorage.setItem("highscores", JSON.stringify(highscores));
+  
+        displayHighscores();
+    }
+  }
+
 
 startbutton.addEventListener("click", startQuiz);
+submitInitialButton.addEventListener("click", saveHighscore);
