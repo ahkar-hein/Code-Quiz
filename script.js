@@ -61,3 +61,40 @@ let questionIndex = 0;
 let score = 0;
 let timeLeft = 60;
 let timerInterval;
+
+function updateTimer() {
+    timeLeft--;
+    timerElement.textContent = timeLeft;
+  
+    if (timeLeft <= 0) {
+      endQuiz();
+    }
+}
+
+function startQuiz() {
+    startscreen.style.display = "none";
+    startbutton.style.display = "none";
+    quizcontainer.style.display = "block";
+    showtime.style.display ="block";
+    timerInterval = setInterval(updateTimer, 1000);
+    displayquiz();
+}
+
+function displayquiz() {
+    const currentQuestion = quizData[questionIndex];
+    questions.textContent = currentQuestion.question;
+  
+    choices.innerHTML = "";
+  
+    currentQuestion.choices.forEach(function(choice) {
+      const choiceButton = document.createElement("button");
+      choiceButton.textContent = choice;
+      choices.appendChild(choiceButton);
+  
+      choiceButton.addEventListener("click", function() {
+        checkAnswer(choice, currentQuestion.answer);
+      });
+    });
+}
+
+startbutton.addEventListener("click", startQuiz);
