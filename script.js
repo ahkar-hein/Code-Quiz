@@ -8,6 +8,7 @@
 // Check Answer
 // Save Highscore localstorage
 
+// This quizData array consist of question and answer of the quiz.
 const quizData = [
     {
         question: "HTML stands for -",
@@ -35,3 +36,28 @@ const quizData = [
         answer: "<ul>"
     },
 ]
+
+// Get reference from HTML by using document.getElementbyID.
+const startscreen = document.getElementById("start-screen");
+const startbutton = document.getElementById("start");
+const quizcontainer = document.getElementById("quiz-container");
+const questions = document.getElementById("question");
+const choices = document.getElementById("choice");
+const endquiz = document.getElementById("end-quiz");
+const highscore = document.getElementById("your-highscore");
+const btninitial = document.getElementById("submit-initial");
+const timerElement = document.getElementById("time");
+const showtime = document.getElementById("timer");
+const scoreElement = document.getElementById("score");
+const submitInitialButton = document.getElementById("submit-initial");
+const initialsInput = document.getElementById("initials");
+const highscoreContainer = document.getElementById("highscore-container");
+const highscoreList = document.querySelector("#highscore-container ul");
+const goBackButton = document.getElementById("go-back");
+const answer = document.getElementById("answer");
+
+// Variable for question index, score and timer.
+let questionIndex = 0;
+let score = 0;
+let timeLeft = 60;
+let timerInterval;
