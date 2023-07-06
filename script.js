@@ -69,7 +69,9 @@ let highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 function updateTimer() {
     timeLeft--;
     timerElement.textContent = timeLeft;
-  
+    if (timeLeft < 10) {
+        showtime.style.color = "Red";
+    }
     if (timeLeft <= 0) {
       endQuiz();
     }
