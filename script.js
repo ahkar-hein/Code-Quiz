@@ -59,7 +59,7 @@ const answer = document.getElementById("answer");
 // Variable for question index, score and timer.
 let questionIndex = 0;
 let score = 0;
-let timeLeft = 60;
+let timeLeft = 120;
 let timerInterval;
 
 function updateTimer() {
@@ -96,5 +96,31 @@ function displayquiz() {
       });
     });
 }
+
+function checkAnswer(selectedChoice, correctAnswer) {
+    if (selectedChoice === correctAnswer) {
+        score+20;
+        answer.innerHTML = "Correct";
+        answer.classList.add("correct");
+    } else {
+      timeLeft -= 20;
+      answer.innerHTML = "Wrong";
+      answer.classList.add("wrong");
+      if (timeLeft < 0) {
+        timeLeft = 0;
+      }
+    }
+    setTimeout(() => {
+        answer.classList.remove("correct", "wrong");
+        answer.innerHTML = "";
+        questionIndex++;
+        if (questionIndex < quizData.length) {
+          displayquiz();
+        } else {
+            
+        }
+      }, 1000);
+
+  }
 
 startbutton.addEventListener("click", startQuiz);
