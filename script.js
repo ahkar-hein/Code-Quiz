@@ -99,7 +99,7 @@ function displayquiz() {
 
 function checkAnswer(selectedChoice, correctAnswer) {
     if (selectedChoice === correctAnswer) {
-        score+20;
+        score += 20;
         answer.innerHTML = "Correct";
         answer.classList.add("correct");
     } else {
@@ -117,10 +117,19 @@ function checkAnswer(selectedChoice, correctAnswer) {
         if (questionIndex < quizData.length) {
           displayquiz();
         } else {
-            
+            endQuiz();
         }
       }, 1000);
-
-  }
+}
+  function endQuiz() {
+    clearInterval(timerInterval);
+    quizcontainer.style.display = "none";
+    endquiz.style.display = "inline";
+    showScore();
+}
+  
+  function showScore() {
+    scoreElement.textContent = score;
+}
 
 startbutton.addEventListener("click", startQuiz);
