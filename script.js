@@ -78,7 +78,7 @@ function updateTimer() {
 function startQuiz() {
     startscreen.style.display = "none";
     startbutton.style.display = "none";
-    quizcontainer.style.display = "block";
+    quizcontainer.style.display = "inline-block";
     showtime.style.display ="block";
     timerInterval = setInterval(updateTimer, 1000);
     displayquiz();
@@ -94,7 +94,7 @@ function displayquiz() {
       const choiceButton = document.createElement("button");
       choiceButton.textContent = choice;
       choices.appendChild(choiceButton);
-  
+
       choiceButton.addEventListener("click", function() {
         checkAnswer(choice, currentQuestion.answer);
       });
@@ -129,7 +129,7 @@ function checkAnswer(selectedChoice, correctAnswer) {
   function endQuiz() {
     clearInterval(timerInterval);
     quizcontainer.style.display = "none";
-    endquiz.style.display = "inline";
+    endquiz.style.display = "block";
     showScore();
 }
   
