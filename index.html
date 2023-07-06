@@ -9,26 +9,30 @@
 <body>
     <div id="start-screen">
         <h1>Code Quiz Challenge</h1>
+        <p>Answer the following HTML related question. 
+            Time limit is 80 seconds and substract 20 seconds for each incorrect answer.</p>
         <button id="start">Start Quiz</button>
+        <button id="view-highscore">HighScore</button>
     </div>
     <div id="quiz-container">
         <p id="question"></p>
         <div id="choice"></div>
-        <h2 id="timer">Time: <span id="time">60</span> seconds</h2>
+        <h2 id="timer">Time: <span id="time">80</span> seconds</h2>
         <hr>
         <p id="answer"></p>
     </div>
     <div id="end-quiz">
         <h1>All Done!</h1>
-        <p>Your score: <span id="score"></span></p>
+        <p>Your final score is  <span id="score"></span></p>
         <input type="text" id="initials" placeholder="Enter Your Initinal">
         <button type="button" id="submit-initial">Submit</button>
     </div>
     <div id="highscore-container">
-        <ul>
-            <li></li>
+        <h1>HighScore</h1>
+        <ul id="score-list">
         </ul>
-        <button type="button" id="go-back">Go Back</button>
+        <button type="button" id="clear">Clear HightScore</button>
+        <button type="button" id="start-again">Start Quiz</button>
     </div>
     <script src="script.js"></script>
 </body>

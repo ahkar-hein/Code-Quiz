@@ -52,9 +52,12 @@ const scoreElement = document.getElementById("score");
 const submitInitialButton = document.getElementById("submit-initial");
 const initialsInput = document.getElementById("initials");
 const highscoreContainer = document.getElementById("highscore-container");
-const highscoreList = document.querySelector("#highscore-container ul");
-const goBackButton = document.getElementById("go-back");
+const highscoreList = document.querySelector("highscore-container");
+const scoreList = document.getElementById("score-list");
+const startAgain = document.getElementById("start-again");
 const answer = document.getElementById("answer");
+const clear = document.getElementById("clear");
+const viewHighscore = document.getElementById("view-highscore");
 
 // Variable for question index, score and timer.
 let questionIndex = 0;
@@ -122,6 +125,7 @@ function checkAnswer(selectedChoice, correctAnswer) {
         }
       }, 1000);
 }
+
   function endQuiz() {
     clearInterval(timerInterval);
     quizcontainer.style.display = "none";
@@ -133,12 +137,12 @@ function checkAnswer(selectedChoice, correctAnswer) {
     scoreElement.textContent = score;
 }
 function displayHighscores() {
-    highscoreList.innerHTML = "";
+    scoreList.innerHTML = "";
   
     for (let i = 0; i < highscores.length; i++) {
         const entry = document.createElement("li");
         entry.textContent = highscores[i].initials + " - " + highscores[i].score;
-        highscoreList.appendChild(entry);
+        scoreList.appendChild(entry);
     }
         highscoreContainer.style.display = "block";
         endquiz.style.display = "none";
@@ -151,15 +155,26 @@ function displayHighscores() {
         initials: initials,
         score: score,
       };
-        
         highscores.push(highscore);
         highscores.sort((a, b) => b.score - a.score);
         localStorage.setItem("highscores", JSON.stringify(highscores));
-  
         displayHighscores();
     }
   }
-
+  function clearHighscore() {
+    localStorage.clear();
+    scoreList.style.display = "none";
+  }
+  function viewhighscore() {
+    startscreen.style.display = "none";
+    displayHighscores();
+  }
+  function startagain() {
+    location.reload();
+  }
 
 startbutton.addEventListener("click", startQuiz);
 submitInitialButton.addEventListener("click", saveHighscore);
+clear.addEventListener("click", clearHighscore);
+viewHighscore.addEventListener("click", viewhighscore);
+startAgain.addEventListener("click", startagain)
