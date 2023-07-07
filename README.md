@@ -13,13 +13,12 @@
     Simply click the link that provided in the usage and the website should be run on your system default browser.
 
 ## Usage
-
 ### Website Link
 * [https://ahkar-hein.github.io/Code-Quiz/]
 
 ## Mock-Up
 
-![Alt text](/images/2b06b03e-c4d6-43de-a346-59537f2096d4.gif)
+![Alt text](/images/5.gif)
 
 ## Screentshot
 
