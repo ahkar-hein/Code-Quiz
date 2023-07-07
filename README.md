@@ -11,9 +11,11 @@
 
 ## Installation 
     Simply click the link that provided in the usage and the website should be run on your system default browser.
-    
+
 ## Usage
+
 ### Website Link
+* [https://ahkar-hein.github.io/Code-Quiz/]
 
 ## Mock-Up
 
