@@ -4,7 +4,7 @@
 // Start Quiz Function
 // Display Quiz Function
 // Timer
-// substract timer for wrong answer
+// subtract timer for wrong answer
 // Check Answer
 // Save Highscore localstorage
 
@@ -129,7 +129,7 @@ function checkAnswer(selectedChoice, correctAnswer) {
         answer.innerHTML = "Correct";
         answer.classList.add("correct");
     } else {
-      // if the answer is wrong, substract the 20 seconds from timeLeft
+      // if the answer is wrong, subtract the 20 seconds from timeLeft
       timeLeft -= 20;
       answer.innerHTML = "Wrong";
       answer.classList.add("wrong");
